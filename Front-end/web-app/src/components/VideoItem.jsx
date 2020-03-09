@@ -10,19 +10,14 @@ const VideoItem = ({video, onVideoSelect }) => {
 
     return(
         <Grid item xs={12}>
-            <Grid item xs={6}>
                 <Paper style={{display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => onVideoSelect(video)}>
-                    <img style={{marginRight: '20px'}}
-                         alt={"thumbnail"} src={videoThumbnail}/>
+                    <img style={{marginRight: '20px', borderRadius: '10%',}} height="86" width="153" alt={"thumbnail"} src={videoThumbnail}/>
+                    <Typography variant={"body1"}>
+                        <b>{videoTitle}</b>
+                    </Typography>
                 </Paper>
-            </Grid>
-
-            <Grid item xs={6}>
-                <Paper>
-                    <Typography variant={"subtitle1"}><b>{videoTitle}</b></Typography>
-                </Paper>
-            </Grid>
-            <hr/>
+                <br/>
+                <hr/>
         </Grid>
 
     )

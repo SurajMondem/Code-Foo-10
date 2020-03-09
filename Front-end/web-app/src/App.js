@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Api from './api/ignApi';
-import { Grid } from '@material-ui/core';
+import { Grid, Paper } from '@material-ui/core';
 
 import VideoList from './components/VideoList';
 import VideoDetail from './components/VideoDetail';
@@ -40,21 +40,21 @@ class App extends Component {
         const { videos } = this.state;
 
     return (
-        <Grid justify="center" container spacing={10}>
-            <Grid item xs={12}>
-                <Grid container spacing={10}>
+        <Grid justify="center" container spacing={3}>
+            <Grid item xs={11}>
+                <Grid container spacing={5}>
                     <Grid item xs={12}>
-                        {/*<SearchBar onFormSubmit={this.handleSubmit}/>*/}
+                        <Paper>xs=12</Paper>
                     </Grid>
-                    <Grid item xs={1}>
-                    {/* EMPTY SPACE */}
-                    </Grid>
-                    <Grid item xs={7}>
+                    <Grid item xs={8}>
                         <VideoDetail video={selectedVideo}/>
                     </Grid>
-                    <Grid item xs={4} container spacing={5}>
-                        <Grid item xs={2}>
+                    <Grid item xs={4} container spacing={2}>
+                        <Grid item xs={12}>
                             <VideoList videos={videos} onVideoSelect={this.onVideoSelect}/>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Paper>Load More</Paper>
                         </Grid>
                     </Grid>
                 </Grid>
