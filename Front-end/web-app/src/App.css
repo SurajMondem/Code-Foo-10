@@ -1,0 +1,15 @@
+Grid.videoList {
+    overflow: scroll;
+    width: 400px;
+    height: 600px;
+}
+
+.load-more {
+    display: block;
+    background-color: #af0000;
+    color:white;
+    width: 100%;
+    padding: 10px 10px;
+    border-radius: 10px;
+
+}

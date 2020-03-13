@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Api from './api/ignApi';
 import { Grid, Paper } from '@material-ui/core';
+import "./App.css"
 
 import VideoList from './components/VideoList';
 import VideoDetail from './components/VideoDetail';
@@ -11,6 +12,8 @@ class App extends Component {
         videos: [],
         selectedVideo: null,
     };
+
+    count = 4;
 
     componentDidMount() {
         this.handleSubmit();
@@ -23,8 +26,8 @@ class App extends Component {
     handleSubmit = async () => {
         const response = await Api.get('videos', {
             params: {
-                startindex: '30',
-                count: 5,
+                startIndex: '30',
+                count: this.count,
             }
         });
 
@@ -32,6 +35,12 @@ class App extends Component {
 
         this.setState({videos: response.data.data,
             selectedVideo: response.data.data[0]});
+    };
+
+    updateCount = () => {
+        this.count = this.count + 4;
+        console.log("count value" + this.count);
+        this.handleSubmit();
     };
 
   render() {
@@ -50,11 +59,15 @@ class App extends Component {
                         <VideoDetail video={selectedVideo}/>
                     </Grid>
                     <Grid item xs={4} container spacing={2}>
-                        <Grid item xs={12}>
+                        <Grid item xs={12} >
                             <VideoList videos={videos} onVideoSelect={this.onVideoSelect}/>
                         </Grid>
                         <Grid item xs={12}>
-                            <Paper>Load More</Paper>
+                            <Paper>
+                                <button className={"load-more"} onClick={this.updateCount}>
+                                    Load More
+                                </button>
+                            </Paper>
                         </Grid>
                     </Grid>
                 </Grid>

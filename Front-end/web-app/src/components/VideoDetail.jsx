@@ -5,9 +5,9 @@ const VideoDetail = ({video}) => {
 
     if(!video) return <div>Loading...</div>;
 
-    console.log(video.assets[4].url);
+    console.log(video.assets[3].url);
 
-    const videoSrc = `${video.assets[4].url}`;
+    const videoSrc = `${video.assets[3].url}`;
     const videoHeight = `${540}`;
     const videoWidth = `${960 - 105}`;
 
