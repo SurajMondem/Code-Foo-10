@@ -2,7 +2,6 @@ require('dotenv').config();
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const passport = require('passport');
 const cors = require('cors');
 
 const handle = require('./handlers');
@@ -23,11 +22,6 @@ app.get('/', (request, response) => {
 app.use('/auth', routes.auth);
 app.use(handle.notFound);
 app.use(handle.errorHandler);
-
-//Passport Middleware
-app.use(passport.initialize());
-app.use(passport.session());
-
 
 //Start Server
 app.listen(PORT, () => {

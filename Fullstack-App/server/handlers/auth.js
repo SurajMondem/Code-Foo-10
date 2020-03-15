@@ -46,5 +46,3 @@ exports.login = async (request, response, next) =>
         e.message = 'Invalid Username/Password';
     }
 };
-
-//exports.profile = async ()
