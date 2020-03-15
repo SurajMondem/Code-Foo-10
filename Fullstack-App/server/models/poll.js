@@ -6,7 +6,6 @@ const optionSchema = new mongoose.Schema({
         type: Number,
         default: 0
     }
-
 });
 
 const pollSchema = new mongoose.Schema({
@@ -19,7 +18,11 @@ const pollSchema = new mongoose.Schema({
     voted: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }]
+    }],
+    created: {
+        type: Date,
+        default: Date.now,
+    }
 });
 
-module.exports = mongoose.model('Poll', pollSchema)
+module.exports = mongoose.model('Poll', pollSchema);
