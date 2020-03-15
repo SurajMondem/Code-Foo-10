@@ -20,6 +20,7 @@ app.get('/', (request, response) => {
 });
 
 app.use('/auth', routes.auth);
+app.use('/polls', routes.poll);
 app.use(handle.notFound);
 app.use(handle.errorHandler);
 
