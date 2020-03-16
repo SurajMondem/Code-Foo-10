@@ -11,6 +11,6 @@ module.exports.notFound = (request, response, next) => {
 
 module.exports.errorHandler = (error, request, response, next) => {
     response.status(error.status || 500).json({
-        error: error.message || 'Something went Wrong'
+        message: error.message || 'Something went Wrong'
     })
 };

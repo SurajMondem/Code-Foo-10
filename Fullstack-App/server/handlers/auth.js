@@ -37,7 +37,7 @@ exports.login = async (request, response, next) =>
             response.json({
                 id,
                 username,
-                token: 'JWT ' + token,
+                token: token,
             });
         } else {
             throw new Error();
