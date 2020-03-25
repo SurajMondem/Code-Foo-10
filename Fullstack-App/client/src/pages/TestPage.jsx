@@ -1,6 +1,7 @@
 import React from "react";
-import Polls from "../components/polls";
+import Poll from "../components/Poll";
+import ErrorMessage from "../components/ErrorMessage";
 
-const Testpage = () => <Polls/>;
+const Testpage = () => <div><ErrorMessage/><Poll/></div>;
 
 export default Testpage;
