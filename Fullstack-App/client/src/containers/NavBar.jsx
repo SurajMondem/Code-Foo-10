@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from "../store/actions";
 
-const NavBar = ({ auth }) => (<div>
+const NavBar = ({ auth, logout }) => (
+<div>
     <ul>
         <li>
             <Link to={'/register'}>Register</Link>;
@@ -12,11 +13,15 @@ const NavBar = ({ auth }) => (<div>
             <Link to={'/login'}>Login</Link>
         </li>
         <li>
-            <a onClick={logout}>Logout</a>
+            <Link to={"/test"}>Test</Link>
+        </li>
+        <li>
+            <a onClick={ logout }>
+                 Logout
+            </a>
         </li>
     </ul>
     {auth.isAuthenticated && (<p>Logged in as {auth.user.username}</p>)}
 </div>);
 
-
-export default connect(store => ({auth: store.auth}), (logout))(NavBar);
+export default connect(store => ({auth: store.auth}), { logout })(NavBar);
